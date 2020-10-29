@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\booksController;
 
 /*
 |--------------------------------------------------------------------------
@@ -24,3 +25,9 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
 Route::get('/login', function () {
     return view('auth/login');
 });
+
+Route::post('/books',[booksController::class,'store']);
+
+Route::patch('/books/{book}',[booksController::class,'update']);
+
+
